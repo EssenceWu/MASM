@@ -38,7 +38,7 @@ CODE SEGMENT
 	    JNZ ERROR
 
         MOV AX, DATA
-	    MOV ES, AX
+        MOV ES, AX
         LEA SI, USERNAME
         LEA DI, BUFF1+2
         MOV CX, COUNT1
@@ -47,7 +47,7 @@ CODE SEGMENT
         JNZ ERROR
 
         MOV AX, DATA
-	    MOV ES, AX
+        MOV ES, AX
         LEA SI, PASSWORD
         LEA DI, BUFF2+2
         MOV CX, COUNT2
