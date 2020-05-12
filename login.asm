@@ -33,9 +33,9 @@ CODE SEGMENT
         INT 21H
 
         CMP BYTE PTR BUFF1+1, COUNT1
-	    JNZ ERROR
+        JNZ ERROR
         CMP BYTE PTR BUFF2+1, COUNT2
-	    JNZ ERROR
+        JNZ ERROR
 
         MOV AX, DATA
         MOV ES, AX
