@@ -4,12 +4,12 @@ DATA SEGMENT
     COUNT1 EQU $-USERNAME
     PASSWORD DB '123456'
     COUNT2 EQU $-PASSWORD
-    BUFF1 DB 15, ?, 15 DUP(?)
-    BUFF2 DB 15, ?, 15 DUP(?)      
+    BUFF1 DB 100, ?, 100 DUP(?)
+    BUFF2 DB 100, ?, 100 DUP(?)      
     MSG1 DB '|***************Username***************|:', 0DH, 0AH, '$'
     MSG2 DB '|***************Password***************|:', 0DH, 0AH, '$'
     MSG3 DB 'Username or password error!', 0DH, 0AH, '$'
-    MSG4 DB '[ Home | Account | Logout ]', 0DH, 0AH, '$'
+    MSG4 DB 'Welcome to masm.', 0DH, 0AH, '$'
 DATA ENDS
 STACK SEGMENT STACK
 STACK ENDS
@@ -43,7 +43,7 @@ CODE SEGMENT
         LEA DI, BUFF1+2
         MOV CX, COUNT1
         CLD
-        REPE CMPSB
+        REPZ CMPSB
         JNZ ERROR
 
         MOV AX, DATA
@@ -52,7 +52,7 @@ CODE SEGMENT
         LEA DI, BUFF2+2
         MOV CX, COUNT2
         CLD
-        REPE CMPSB
+        REPZ CMPSB
         JNZ ERROR
 
     SUCCESS:
